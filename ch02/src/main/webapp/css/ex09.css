@@ -1,0 +1,7 @@
+@charset "UTF-8";
+@import "main.css";
+
+h1 {color: #00f}
+
+
+/*h1을 걸러내서 스타일을 적용한다.*/
