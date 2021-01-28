@@ -4,22 +4,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-
-document.write( "<pre>" );
-
-for(var i = 1; i <= 9; i++ ){
-	for( var j = 1; j <= 9; j++ ) {
-		document.write( j + " x " + i + " = " + j*i );
-		document.write( "\t" );
-	}
-	document.write( "\n" );
+var s ='';
+for(property in location){
+	s += (property + ":" + location[property] + "\n")
 }
-
-document.write( "</pre>" );
+console.log(s);
 
 </script>
 </head>
 <body>
-
+	<h1>BOM(Brower Object Model) - window, location, screen, navigator</h1>
+	<h2>3. location 객체(주소창)</h2>
+	<h3>Page Redirection</h3>
+	<button onclick = 'location.href="http://www.bitacademy.com";'>비트교육</button>
+	
+	<h3>page refresh</h3>
+	
+	<button onclick='location = location;'>refresh01</button>
+	<button onclick='location.href = location.href;'>refresh02</button>
+	<button onclick='location.assign("");'>refresh03</button>
+	
+	
 </body>
 </html>
