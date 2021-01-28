@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+//Event Propagation(Bubbling)
+//특정 엘리멘트에서 이벤트가 발생했을 때, 그 이벤트가 상위로 전파되는 것
+// <= IE8 	: outer-div > inner-div > header > text
+// standard : outer-div < inner-div < header < text
+window.addEventListener('load', function(){
+
+	document.getElementById('outer-div').addEventListener('click', function(){
+		console.log('outer-div');
+	});
+	
+	document.getElementById('inner-div').addEventListener('click', function(e){
+		let event = e || window.event; // <=IE8 대응(cross browser)
+		
+		// prevent propagation(bubbling)
+		event.cancelBubbling = true;  //<= IE8
+		event.stopPropagation && event.stopPropagation()
+		
+		console.log('inner-div');
+	});
+	
+	document.getElementById('header').addEventListener('click', function(){
+		console.log('header');
+	});
+	
+	document.getElementById('text').addEventListener('click', function(){
+		console.log('text');
+	});
+});
+
+
+
+</script>
+</head>
+<body>
+	<div id='outer-idv'>
+		<div id='inner-div'>
+		<h1 id='header'>
+			<span id='text'>text</span>
+		</h1>
+		</div>
+		
+	</div>
+</body>
+</html>
